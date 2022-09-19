@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoContentsRenovateTaskDao">
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoContentsRenovateTask">
+        <result column="id" property="id"/>
+        <result column="content_id" property="contentId"/>
+        <result column="renovate_time" property="renovateTime"/>
+        <result column="interval_time" property="intervalTime"/>
+        <result column="renovate_times" property="renovateTimes"/>
+        <result column="residue_times" property="residueTimes"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `content_id`,
+        `renovate_time`,
+        `interval_time`,
+        `renovate_times`,
+        `residue_times`,
+        `status`
+    </sql>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoContentsRenovateTask" keyProperty="id"
+            useGeneratedKeys="true">
+        INSERT INTO ${prefix}_contents_renovate_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test='null != task.id'>
+                `id`,
+            </if>
+            <if test='null != task.contentId'>
+                `content_id`,
+            </if>
+            <if test='null != task.renovateTime'>
+                `renovate_time`,
+            </if>
+            <if test='null != task.intervalTime'>
+                `interval_time`,
+            </if>
+            <if test='null != task.renovateTimes'>
+                `renovate_times`,
+            </if>
+            <if test='null != task.residueTimes'>
+                `residue_times`,
+            </if>
+            <if test='null != task.status'>
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test='null != task.id'>
+                #{task.id},
+            </if>
+            <if test='null != task.contentId'>
+                #{task.contentId},
+            </if>
+            <if test='null != task.renovateTime'>
+                #{task.renovateTime},
+            </if>
+            <if test='null != task.intervalTime'>
+                #{task.intervalTime},
+            </if>
+            <if test='null != task.renovateTimes'>
+                #{task.renovateTimes},
+            </if>
+            <if test='null != task.residueTimes'>
+                #{task.residueTimes},
+            </if>
+            <if test='null != task.status'>
+                #{task.status},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoContentsRenovateTask">
+        UPDATE ${prefix}_contents_renovate_task
+        <set>
+            <if test='null != task.status'>
+                `status` = #{task.status},
+            </if>
+            <if test='null != task.residueTimes'>
+                `residue_times` = #{task.residueTimes},
+            </if>
+        </set>
+        WHERE `id` = #{task.id}
+    </update>
+
+    <!-- 条件查询 -->
+    <select id="getEffective" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${prefix}_contents_renovate_task
+        WHERE `status` = 1
+    </select>
+</mapper>

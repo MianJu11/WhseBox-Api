@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoContentsDao">
+
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoContents" >
+        <result column="cid" property="cid" />
+        <result column="title" property="title" />
+        <result column="slug" property="slug" />
+        <result column="created" property="created" />
+        <result column="modified" property="modified" />
+        <result column="text" property="text" />
+        <result column="order" property="orderKey" />
+        <result column="authorId" property="authorId" />
+        <result column="template" property="template" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="password" property="password" />
+        <result column="commentsNum" property="commentsNum" />
+        <result column="allowComment" property="allowComment" />
+        <result column="allowPing" property="allowPing" />
+        <result column="allowFeed" property="allowFeed" />
+        <result column="parent" property="parent" />
+        <result column="views" property="views" />
+        <result column="likes" property="likes" />
+        <result column="logo" property="logo" />
+		<result column="whsexburl" property="whsexburl" />
+		<result column="whserwurl" property="whserwurl" />
+		<result column="whsevip" property="whsevip" />
+		<result column="whseprice" property="whseprice" />
+        <result column="appleipa" property="appleipa" />
+        <result column="shopmid" property="shopmid" />
+        <result column="carousel" property="carousel" />
+        <result column="sticky" property="sticky" />
+        <result column="burning" property="burning" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `cid`,
+        `title`,
+        `slug`,
+        `created`,
+        `modified`,
+        `text`,
+        `order`,
+        `authorId`,
+        `template`,
+        `type`,
+        `status`,
+        `password`,
+        `commentsNum`,
+        `allowComment`,
+        `allowPing`,
+        `allowFeed`,
+        `parent`,
+        `views`,
+        `likes`,
+		`isstickyzd`,
+		`isstickygg`,
+		`whsexb`,
+		`whsexbrw`,
+        `isrecommend`,
+		
+		`whsexburl`,
+		`whserwurl`,
+        `appleipa`,
+        `shopmid`,
+		`whseprice`,
+		`whsevip`,
+        `logo`,
+	    `carousel`,
+        `sticky`,
+        `burning`
+
+    </sql>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoContents"  keyProperty="cid" useGeneratedKeys="true">
+        INSERT INTO ${prefix}_contents
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != cid'>
+                `cid`,
+            </if>
+            <if test ='null != title'>
+                `title`,
+            </if>
+            <if test ='null != slug'>
+                `slug`,
+            </if>
+            <if test ='null != created'>
+                `created`,
+            </if>
+            <if test ='null != modified'>
+                `modified`,
+            </if>
+            <if test ='null != text'>
+                `text`,
+            </if>
+            <if test ='null != orderKey'>
+                `order`,
+            </if>
+            <if test ='null != authorId'>
+                `authorId`,
+            </if>
+            <if test ='null != template'>
+                `template`,
+            </if>
+            <if test ='null != type'>
+                `type`,
+            </if>
+            <if test ='null != status'>
+                `status`,
+            </if>
+            <if test ='null != password'>
+                `password`,
+            </if>
+            <if test ='null != commentsNum'>
+                `commentsNum`,
+            </if>
+            <if test ='null != allowComment'>
+                `allowComment`,
+            </if>
+            <if test ='null != allowPing'>
+                `allowPing`,
+            </if>
+            <if test ='null != allowFeed'>
+                `allowFeed`,
+            </if>
+            <if test ='null != parent'>
+                `parent`,
+            </if>
+			
+			<if test ='null != whsexburl'>
+                `whsexburl`,
+            </if>
+			<if test ='null != whserwurl'>
+                `whserwurl`,
+            </if>
+			<if test ='null != whseprice'>
+                `whseprice`,
+            </if>
+            <if test ='null != appleipa'>
+                `appleipa`,
+            </if>
+            <if test ='null != shopmid'>
+                `shopmid`,
+            </if>
+			<if test ='null != whsevip'>
+                `whsevip`,
+            </if>
+            <if test ='null != logo'>
+                `logo`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != cid'>
+                #{cid},
+            </if>
+            <if test ='null != title'>
+                #{title},
+            </if>
+            <if test ='null != slug'>
+                #{slug},
+            </if>
+            <if test ='null != created'>
+                #{created},
+            </if>
+            <if test ='null != modified'>
+                #{modified},
+            </if>
+            <if test ='null != text'>
+                #{text},
+            </if>
+            <if test ='null != orderKey'>
+                #{orderKey},
+            </if>
+            <if test ='null != authorId'>
+                #{authorId},
+            </if>
+            <if test ='null != template'>
+                #{template},
+            </if>
+            <if test ='null != type'>
+                #{type},
+            </if>
+            <if test ='null != status'>
+                #{status},
+            </if>
+            <if test ='null != password'>
+                #{password},
+            </if>
+            <if test ='null != commentsNum'>
+                #{commentsNum},
+            </if>
+            <if test ='null != allowComment'>
+                #{allowComment},
+            </if>
+            <if test ='null != allowPing'>
+                #{allowPing},
+            </if>
+            <if test ='null != allowFeed'>
+                #{allowFeed},
+            </if>
+            <if test ='null != parent'>
+                #{parent},
+            </if>
+			
+			<if test ='null != whsexburl'>
+                #{whsexburl},
+            </if>
+			<if test ='null != whserwurl'>
+                #{whserwurl},
+            </if>
+			<if test ='null != whseprice'>
+                #{whseprice},
+            </if>
+            <if test ='null != appleipa'>
+                #{appleipa},
+            </if>
+            <if test ='null != shopmid'>
+                #{shopmid},
+            </if>
+			<if test ='null != whsevip'>
+                #{whsevip},
+            </if>
+            <if test ='null != logo'>
+                #{logo}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入数据 -->
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO ${prefix}_contents ( <include refid="Base_Column_List" /> ) VALUES
+        <foreach collection="list" item="curr" index="index" separator=",">
+            (
+                #{curr.cid},
+                #{curr.title},
+                #{curr.slug},
+                #{curr.created},
+                #{curr.modified},
+                #{curr.text},
+                #{curr.orderKey},
+                #{curr.authorId},
+                #{curr.template},
+                #{curr.type},
+                #{curr.status},
+                #{curr.password},
+                #{curr.commentsNum},
+                #{curr.allowComment},
+                #{curr.allowPing},
+                #{curr.allowFeed},
+                #{curr.parent},
+				
+				#{curr.whsexburl},
+				#{curr.whserwurl},
+		 		#{curr.whseprice},
+                #{curr.appleipa},
+                #{curr.shopmid},
+                #{curr.whsevip},
+                #{curr.logo}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoContents">
+        UPDATE ${prefix}_contents
+        <set>
+            <if test ='null != title'>`title` = #{title},</if>
+            <if test ='null != slug'>`slug` = #{slug},</if>
+            <if test ='null != created'>`created` = #{created},</if>
+            <if test ='null != modified'>`modified` = #{modified},</if>
+            <if test ='null != text'>`text` = #{text},</if>
+            <if test ='null != orderKey'>`order` = #{orderKey},</if>
+            <if test ='null != authorId'>`authorId` = #{authorId},</if>
+            <if test ='null != template'>`template` = #{template},</if>
+            <if test ='null != type'>`type` = #{type},</if>
+            <if test ='null != status'>`status` = #{status},</if>
+            <if test ='null != password'>`password` = #{password},</if>
+            <if test ='null != commentsNum'>`commentsNum` = #{commentsNum},</if>
+            <if test ='null != allowComment'>`allowComment` = #{allowComment},</if>
+            <if test ='null != allowPing'>`allowPing` = #{allowPing},</if>
+            <if test ='null != allowFeed'>`allowFeed` = #{allowFeed},</if>
+            <if test ='null != parent'>`parent` = #{parent},</if>
+            <if test ='null != views'>`views` = #{views},</if>
+            <if test ='null != likes'>`likes` = #{likes},</if>
+			<if test ='null != isstickyzd'>`isstickyzd` = #{isstickyzd},</if>
+			<if test ='null != isstickygg'>`isstickygg` = #{isstickygg},</if>
+			<if test ='null != whsexb'>`whsexb` = #{whsexb},</if>
+			<if test ='null != whsexbrw'>`whsexbrw` = #{whsexbrw},</if>
+            <if test ='null != isrecommend'>`isrecommend` = #{isrecommend},</if>
+			
+			<if test ='null != whsexburl'>`whsexburl` = #{whsexburl},</if>
+			<if test ='null != whserwurl'>`whserwurl` = #{whserwurl},</if>
+			<if test ='null != whseprice'>`whseprice` = #{whseprice},</if>
+            <if test ='null != appleipa'>`appleipa` = #{appleipa},</if>
+            <if test ='null != shopmid'>`shopmid` = #{shopmid},</if>
+            <if test ='null != whsevip'>`whsevip` = #{whsevip},</if>
+			<if test ='null != carousel'>`carousel` = #{carousel},</if>
+            <if test ='null != sticky'>`sticky` = #{sticky},</if>
+            <if test ='null != burning'>`burning` = #{burning},</if>
+            <if test ='null != logo'>`logo` = #{logo}</if>
+        </set>
+        WHERE `cid` = #{cid}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete">
+        DELETE FROM ${prefix}_contents
+        WHERE `cid` = #{key}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="batchDelete" parameterType = "java.util.List">
+        DELETE FROM ${prefix}_contents WHERE cid IN
+        <foreach collection="list"  item="item" open="(" separator="," close=")"  >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 主键查询 -->
+    <select id="selectByKey" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_contents
+        WHERE `cid` = #{key}
+    </select>
+
+    <!-- 条件查询 -->
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_contents
+        <where>
+            <if test ='null != cid'>
+                and `cid` = #{cid}
+            </if>
+            <if test ='null != title'>
+                and `title` = #{title}
+            </if>
+            <if test ='null != slug'>
+                and `slug` = #{slug}
+            </if>
+            <if test ='null != created'>
+                and `created` = #{created}
+            </if>
+            <if test ='null != modified'>
+                and `modified` = #{modified}
+            </if>
+            <if test ='null != text'>
+                and `text` = #{text}
+            </if>
+            <if test ='null != orderKey'>
+                and `order` = #{orderKey}
+            </if>
+            <if test ='null != authorId'>
+                and `authorId` = #{authorId}
+            </if>
+            <if test ='null != template'>
+                and `template` = #{template}
+            </if>
+            <if test ='null != type'>
+                and `type` = #{type}
+            </if>
+            <if test ='null != status'>
+                and `status` = #{status}
+            </if>
+            <if test ='null != password'>
+                and `password` = #{password}
+            </if>
+            <if test ='null != commentsNum'>
+                and `commentsNum` = #{commentsNum}
+            </if>
+            <if test ='null != allowComment'>
+                and `allowComment` = #{allowComment}
+            </if>
+            <if test ='null != allowPing'>
+                and `allowPing` = #{allowPing}
+            </if>
+            <if test ='null != allowFeed'>
+                and `allowFeed` = #{allowFeed}
+            </if>
+            <if test ='null != parent'>
+                and `parent` = #{parent}
+            </if>
+            <if test ='null != views'>
+                and `views` = #{views}
+            </if>
+            <if test ='null != parent'>
+                and `likes` = #{likes}
+            </if>
+			
+			<if test ='null != parent'>
+                and `whsexburl` = #{whsexburl}
+            </if>
+			<if test ='null != parent'>
+                and `whserwurl` = #{whserwurl}
+            </if>
+			<if test ='null != parent'>
+                and `whseprice` = #{whseprice}
+            </if>
+            <if test ='null != parent'>
+                and `appleipa` = #{appleipa}
+            </if>
+            <if test ='null != parent'>
+                and `shopmid` = #{shopmid}
+            </if>
+			<if test ='null != parent'>
+                and `whsevip` = #{whsevip}
+            </if>
+            <if test ='null != logo'>
+                and `logo` = #{logo}
+            </if>
+        </where>
+    </select>
+
+    <!-- 分页条件查询 -->
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_contents
+        <where>
+            <if test ='null != typechoContents.cid'>
+                and `cid` = #{typechoContents.cid}
+            </if>
+            <if test ='null != typechoContents.title'>
+                and `title` = #{typechoContents.title}
+            </if>
+            <if test ='null != typechoContents.slug'>
+                and `slug` = #{typechoContents.slug}
+            </if>
+            <if test ='null != typechoContents.created'>
+                and `created` = #{typechoContents.created}
+            </if>
+            <if test ='null != typechoContents.modified'>
+                and `modified` = #{typechoContents.modified}
+            </if>
+            <if test ='null != typechoContents.text'>
+                and `text` = #{typechoContents.text}
+            </if>
+            <if test ='null != typechoContents.orderKey'>
+                and `order` = #{typechoContents.orderKey}
+            </if>
+            <if test ='null != typechoContents.authorId'>
+                and `authorId` = #{typechoContents.authorId}
+            </if>
+            <if test ='null != typechoContents.template'>
+                and `template` = #{typechoContents.template}
+            </if>
+            <if test ='null != typechoContents.type'>
+                and `type` = #{typechoContents.type}
+            </if>
+            <if test ='null != typechoContents.status'>
+                and `status` = #{typechoContents.status}
+            </if>
+            <if test ='null != typechoContents.password'>
+                and `password` = #{typechoContents.password}
+            </if>
+            <if test ='null != typechoContents.commentsNum'>
+                and `commentsNum` = #{typechoContents.commentsNum}
+            </if>
+            <if test ='null != typechoContents.allowComment'>
+                and `allowComment` = #{typechoContents.allowComment}
+            </if>
+            <if test ='null != typechoContents.allowPing'>
+                and `allowPing` = #{typechoContents.allowPing}
+            </if>
+            <if test ='null != typechoContents.allowFeed'>
+                and `allowFeed` = #{typechoContents.allowFeed}
+            </if>
+            <if test ='null != typechoContents.parent'>
+                and `parent` = #{typechoContents.parent}
+            </if>
+            <if test ='null != typechoContents.views'>
+                and `views` = #{typechoContents.views}
+            </if>
+            <if test ='null != typechoContents.likes'>
+                and `likes` = #{typechoContents.likes}
+            </if>
+			<if test ='null != typechoContents.isstickyzd'>
+                and `isstickyzd` = #{typechoContents.isstickyzd}
+            </if>
+			<if test ='null != typechoContents.isstickygg'>
+                and `isstickygg` = #{typechoContents.isstickygg}
+            </if>
+			<if test ='null != typechoContents.whsexb'>
+                and `whsexb` = #{typechoContents.whsexb}
+            </if>
+			<if test ='null != typechoContents.whsexbrw'>
+                and `whsexbrw` = #{typechoContents.whsexbrw}
+            </if>
+            <if test ='null != typechoContents.isrecommend'>
+                and `isrecommend` = #{typechoContents.isrecommend}
+            </if>
+			
+			<if test ='null != typechoContents.whsexburl'>
+                and `whsexburl` = #{typechoContents.whsexburl}
+            </if>
+			<if test ='null != typechoContents.whserwurl'>
+                and `whserwurl` = #{typechoContents.whserwurl}
+            </if>
+			<if test ='null != typechoContents.whseprice'>
+                and `whseprice` = #{typechoContents.whseprice}
+            </if>
+            <if test ='null != typechoContents.appleipa'>
+                and `appleipa` = #{typechoContents.appleipa}
+            </if>
+            <if test ='null != typechoContents.shopmid'>
+                and `shopmid` = #{typechoContents.shopmid}
+            </if>
+			<if test ='null != typechoContents.whsevip'>
+                and `whsevip` = #{typechoContents.whsevip}
+            </if>
+            <if test ='null != typechoContents.logo'>
+                and `logo` = #{typechoContents.logo}
+            </if>
+	    <if test ='null != typechoContents.carousel'>
+                and `carousel` = #{typechoContents.carousel}
+            </if>
+            <if test ='null != typechoContents.sticky'>
+                and `sticky` = #{typechoContents.sticky}
+            </if>
+            <if test ='null != typechoContents.burning'>
+                and `burning` = #{typechoContents.burning}
+            </if>
+            <if test ='"" != searchKey and null != searchKey'>
+                and CONCAT(IFNULL(`title`,''),IFNULL(`text`,'')) LIKE '%${searchKey}%'
+            </if>
+            <if test ='0 != random and null != random'>
+                and cid >= (SELECT FLOOR( MAX(cid) * RAND()) FROM `${prefix}_contents` )
+            </if>
+        </where>
+        <if test ='null != order'>
+            order by ${order} desc
+        </if>
+        limit ${page}, ${pageSize}
+    </select>
+
+    <!-- 总量查询 -->
+    <select id="total" resultType="java.lang.Integer">
+        SELECT count(*) FROM ${prefix}_contents
+        <where>
+            <if test ='null != cid'>
+                and `cid` = #{cid}
+            </if>
+            <if test ='null != title'>
+                and `title` = #{title}
+            </if>
+            <if test ='null != slug'>
+                and `slug` = #{slug}
+            </if>
+            <if test ='null != created'>
+                and `created` = #{created}
+            </if>
+            <if test ='null != modified'>
+                and `modified` = #{modified}
+            </if>
+            <if test ='null != text'>
+                and `text` = #{text}
+            </if>
+            <if test ='null != orderKey'>
+                and `order` = #{orderKey}
+            </if>
+            <if test ='null != authorId'>
+                and `authorId` = #{authorId}
+            </if>
+            <if test ='null != template'>
+                and `template` = #{template}
+            </if>
+            <if test ='null != type'>
+                and `type` = #{type}
+            </if>
+            <if test ='null != status'>
+                and `status` = #{status}
+            </if>
+            <if test ='null != password'>
+                and `password` = #{password}
+            </if>
+            <if test ='null != commentsNum'>
+                and `commentsNum` = #{commentsNum}
+            </if>
+            <if test ='null != allowComment'>
+                and `allowComment` = #{allowComment}
+            </if>
+            <if test ='null != allowPing'>
+                and `allowPing` = #{allowPing}
+            </if>
+            <if test ='null != allowFeed'>
+                and `allowFeed` = #{allowFeed}
+            </if>
+            <if test ='null != parent'>
+                and `parent` = #{parent}
+            </if>
+			
+			<if test ='null != whsexburl'>
+                and `whsexburl` = #{whsexburl}
+            </if>
+			<if test ='null != whserwurl'>
+                and `whserwurl` = #{whserwurl}
+            </if>
+			<if test ='null != whseprice'>
+                and `whseprice` = #{whseprice}
+            </if>
+            <if test ='null != appleipa'>
+                and `appleipa` = #{appleipa}
+            </if>
+            <if test ='null != shopmid'>
+                and `shopmid` = #{shopmid}
+            </if>
+			<if test ='null != whsevip'>
+                and `whsevip` = #{whsevip}
+            </if>
+            <if test ='null != logo'>
+                and `logo` = #{logo}
+            </if>
+	    <if test ='null != carousel'>
+                and `carousel` = #{carousel}
+            </if>
+            <if test ='null != sticky'>
+                and `sticky` = #{sticky}
+            </if>
+            <if test ='null != burning'>
+                and `burning` = #{burning}
+            </if>
+        </where>
+    </select>
+
+    <!-- 更新 -->
+    <update id="updatePaymentViews">
+        UPDATE ${prefix}_contents
+        SET views = views + 5
+        WHERE
+        carousel = 1
+       OR sticky = 1
+       OR burning = 1
+    </update>
+
+    <update id="updateCommonViews">
+        UPDATE ${prefix}_contents
+        SET views = views + 1,
+        increaseViews =
+        CASE
+        WHEN increaseViews IS NULL THEN
+        1 ELSE increaseViews + 1
+        END
+        WHERE
+        carousel = 0
+        AND sticky = 0
+        AND burning = 0
+        AND (
+        increaseViews <![CDATA[ < ]]> 100
+        OR increaseViews IS NULL
+        )
+    </update>
+</mapper>

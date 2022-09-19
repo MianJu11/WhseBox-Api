@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoStandardFeeDao">
+
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoStandardFee" >
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="times" property="times" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `type`,
+        `times`,
+        `price`
+    </sql>
+
+    <select id="getStandard" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_standard_fee
+        <where>
+            <if test ='null != type'>
+                and `type` = #{type}
+            </if>
+        </where>
+        order by times asc
+    </select>
+
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_standard_fee
+        <where>
+            <if test ='null != id'>
+                and `id` = #{id}
+            </if>
+        </where>
+        order by times asc
+    </select>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoStandardFee" keyProperty="id"
+            useGeneratedKeys="true">
+        INSERT INTO ${prefix}_standard_fee
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test='null != standardFee.id'>
+                `id`,
+            </if>
+            <if test='null != standardFee.type'>
+                `type`,
+            </if>
+            <if test='null != standardFee.times'>
+                `times`,
+            </if>
+            <if test='null != standardFee.price'>
+                `price`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test='null != standardFee.id'>
+                #{standardFee.id},
+            </if>
+            <if test='null != standardFee.type'>
+                #{standardFee.type},
+            </if>
+            <if test='null != standardFee.times'>
+                #{standardFee.times},
+            </if>
+            <if test='null != standardFee.price'>
+                #{standardFee.price},
+            </if>
+        </trim>
+    </insert>
+
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoStandardFee">
+        UPDATE ${prefix}_standard_fee
+        <set>
+            <if test='null != standardFee.type'>
+                `type` = #{standardFee.type},
+            </if>
+            <if test='null != standardFee.times'>
+                `times` = #{standardFee.times},
+            </if>
+            <if test='null != standardFee.price'>
+                `price` = #{standardFee.price},
+            </if>
+        </set>
+        WHERE `id` = #{standardFee.id}
+    </update>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${prefix}_standard_fee
+        limit ${page}, ${limit}
+    </select>
+
+    <select id="total" resultType="java.lang.Integer">
+        SELECT count(*) FROM ${prefix}_standard_fee
+    </select>
+
+    <!-- 删除 -->
+    <delete id="delete">
+        DELETE FROM ${prefix}_standard_fee
+        WHERE `id` = #{id}
+    </delete>
+
+</mapper>

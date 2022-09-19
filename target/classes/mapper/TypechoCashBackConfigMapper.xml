@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoCashBackConfigDao">
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoCashBackConfig">
+        <result column="id" property="id"/>
+        <result column="level_gap" property="levelGap"/>
+        <result column="ratio" property="ratio"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `level_gap`,
+        `ratio`
+    </sql>
+
+    <select id="selectByLevelGap" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${prefix}_cash_back_config
+        WHERE `level_gap` = #{levelGap}
+    </select>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoCashBackConfig" keyProperty="id"
+            useGeneratedKeys="true">
+        INSERT INTO ${prefix}_cash_back_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test='null != cashBackConfig.id'>
+                `id`,
+            </if>
+            <if test='null != cashBackConfig.levelGap'>
+                `level_gap`,
+            </if>
+            <if test='null != cashBackConfig.ratio'>
+                `ratio`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test='null != cashBackConfig.id'>
+                #{cashBackConfig.id},
+            </if>
+            <if test='null != cashBackConfig.levelGap'>
+                #{cashBackConfig.levelGap},
+            </if>
+            <if test='null != cashBackConfig.ratio'>
+                #{cashBackConfig.ratio},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoCashBackConfig">
+        UPDATE ${prefix}_cash_back_config
+        <set>
+            <if test='null != cashBackConfig.levelGap'>
+                `level_gap` = #{cashBackConfig.levelGap},
+            </if>
+            <if test='null != cashBackConfig.ratio'>
+                `ratio` = #{cashBackConfig.ratio},
+            </if>
+        </set>
+        WHERE `id` = #{cashBackConfig.id}
+    </update>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${prefix}_cash_back_config
+        limit ${page}, ${limit}
+    </select>
+
+    <select id="total" resultType="java.lang.Integer">
+        SELECT count(*) FROM ${prefix}_cash_back_config
+    </select>
+
+    <!-- 删除 -->
+    <delete id="delete">
+        DELETE FROM ${prefix}_cash_back_config
+        WHERE `id` = #{id}
+    </delete>
+</mapper>

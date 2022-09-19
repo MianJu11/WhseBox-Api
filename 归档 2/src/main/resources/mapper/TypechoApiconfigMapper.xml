@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoApiconfigDao">
+
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoApiconfig" >
+        <result column="id" property="id" />
+        <result column="webinfoTitle" property="webinfoTitle" />
+        <result column="webinfoUrl" property="webinfoUrl" />
+        <result column="webinfoUploadUrl" property="webinfoUploadUrl" />
+        <result column="webinfoAvatar" property="webinfoAvatar" />
+        <result column="pexelsKey" property="pexelsKey" />
+        <result column="scale" property="scale" />
+        <result column="clock" property="clock" />
+        <result column="vipPrice" property="vipPrice" />
+        <result column="vipDay" property="vipDay" />
+        <result column="vipDiscount" property="vipDiscount" />
+        <result column="isEmail" property="isEmail" />
+        <result column="isInvite" property="isInvite" />
+        <result column="cosAccessKey" property="cosAccessKey" />
+        <result column="cosSecretKey" property="cosSecretKey" />
+        <result column="cosBucket" property="cosBucket" />
+        <result column="cosBucketName" property="cosBucketName" />
+        <result column="cosPath" property="cosPath" />
+        <result column="cosPrefix" property="cosPrefix" />
+        <result column="aliyunEndpoint" property="aliyunEndpoint" />
+        <result column="aliyunAccessKeyId" property="aliyunAccessKeyId" />
+        <result column="aliyunAccessKeySecret" property="aliyunAccessKeySecret" />
+        <result column="aliyunAucketName" property="aliyunAucketName" />
+        <result column="aliyunUrlPrefix" property="aliyunUrlPrefix" />
+        <result column="aliyunFilePrefix" property="aliyunFilePrefix" />
+        <result column="ftpHost" property="ftpHost" />
+        <result column="ftpPort" property="ftpPort" />
+        <result column="ftpUsername" property="ftpUsername" />
+        <result column="ftpPassword" property="ftpPassword" />
+        <result column="ftpBasePath" property="ftpBasePath" />
+        <result column="alipayAppId" property="alipayAppId" />
+        <result column="alipayPrivateKey" property="alipayPrivateKey" />
+        <result column="alipayPublicKey" property="alipayPublicKey" />
+        <result column="alipayNotifyUrl" property="alipayNotifyUrl" />
+        <result column="appletsAppid" property="appletsAppid" />
+        <result column="appletsSecret" property="appletsSecret" />
+        <result column="qqAppletsAppid" property="qqAppletsAppid" />
+        <result column="qqAppletsSecret" property="qqAppletsSecret" />
+        <result column="wxpayAppId" property="wxpayAppId" />
+        <result column="wxpayMchId" property="wxpayMchId" />
+        <result column="wxpayKey" property="wxpayKey" />
+        <result column="wxpayNotifyUrl" property="wxpayNotifyUrl" />
+        <result column="adAwardPoint" property="adAwardPoint" />
+        <result column="adAwardPerDay" property="adAwardPerDay" />
+        <result column="adRwPerDay" property="adRwPerDay" />
+        <result column="adsxili" property="adsxili" />
+		<result column="mianadszl" property="mianadszl" />
+		<result column="miangg" property="miangg" />
+		<result column="miandhlname" property="miandhlname" />
+		<result column="miandhlurl" property="miandhlurl" />
+		<result column="mianqq" property="mianqq" />
+		<result column="miankime" property="miankime" />
+		<result column="mianappa" property="mianappa" />
+		<result column="mianappb" property="mianappb" />
+		<result column="mianappc" property="mianappc" />
+
+        <result column="versionCode" property="versionCode" />
+        <result column="versionUrl" property="versionUrl" />
+        <result column="version" property="version" />
+        <result column="versionIntro" property="versionIntro" />
+
+		<result column="bm0shifou0action" property="bm0shifou0action" />
+		<result column="bm0shifou0pname" property="bm0shifou0pname" />
+		<result column="bm0jiance0action" property="bm0jiance0action" />
+		<result column="bm0jiance0pname" property="bm0jiance0pname" />
+		<result column="bm0xiazai" property="bm0xiazai" />
+		<result column="bm0neirong" property="bm0neirong" />
+
+        <result column="gg0cishu" property="gg0cishu" />
+        <result column="gg0neirong" property="gg0neirong" />
+        <result column="gg0lianjie" property="gg0lianjie" />
+
+		<result column="whseApp" property="whseApp" />
+		<result column="whseApi" property="whseApi" />
+		<result column="whseApphttp" property="whseApphttp" />
+		<result column="auditlevel" property="auditlevel" />
+		<result column="forbidden" property="forbidden" />
+        <result column="freeRenovateTimes" property="freeRenovateTimes" />
+        <result column="epayUrl" property="epayUrl" />
+        <result column="epayPid" property="epayPid" />
+        <result column="epayKey" property="epayKey" />
+        <result column="epayNotifyUrl" property="epayNotifyUrl" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `webinfoTitle`,
+        `webinfoUrl`,
+        `webinfoUploadUrl`,
+        `webinfoAvatar`,
+        `pexelsKey`,
+        `scale`,
+        `clock`,
+        `vipPrice`,
+        `vipDay`,
+        `vipDiscount`,
+        `isEmail`,
+        `isInvite`,
+		
+		`adsxili`,
+		`mianadszl`,
+		`miangg`,
+		`miandhlname`,
+		`miandhlurl`,
+		`mianqq`,
+		`miankime`,
+		`mianappa`,
+		`mianappb`,
+		`mianappc`,
+
+        `versionCode`,
+        `versionUrl`,
+        `version`,
+        `versionIntro`,
+		
+        `cosAccessKey`,
+        `cosSecretKey`,
+        `cosBucket`,
+        `cosBucketName`,
+        `cosPath`,
+        `cosPrefix`,
+        `aliyunEndpoint`,
+        `aliyunAccessKeyId`,
+        `aliyunAccessKeySecret`,
+        `aliyunAucketName`,
+        `aliyunUrlPrefix`,
+        `aliyunFilePrefix`,
+        `ftpHost`,
+        `ftpPort`,
+        `ftpUsername`,
+        `ftpPassword`,
+        `ftpBasePath`,
+        `alipayAppId`,
+        `alipayPrivateKey`,
+        `alipayPublicKey`,
+        `alipayNotifyUrl`,
+        `appletsAppid`,
+        `appletsSecret`,
+        `qqAppletsAppid`,
+        `qqAppletsSecret`,
+        `wxpayAppId`,
+        `wxpayMchId`,
+        `wxpayKey`,
+        `wxpayNotifyUrl`,
+        `adAwardPoint`,
+        `adAwardPerDay`,
+        `adRwPerDay`,
+
+        `bm0shifou0action`,
+        `bm0shifou0pname`,
+        `bm0jiance0action`,
+        `bm0jiance0pname`,
+        `bm0xiazai`,
+        `bm0neirong`,
+
+		`whseApp`,
+		`whseApi`,
+		`whseApphttp`,
+		`auditlevel`,
+		`forbidden`,
+        `freeRenovateTimes`,
+        `gg0cishu`,
+        `gg0neirong`,
+        `gg0lianjie`,
+        `epayUrl`,
+        `epayPid`,
+        `epayKey`,
+        `epayNotifyUrl`
+	
+    </sql>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoApiconfig">
+        INSERT INTO ${prefix}_apiconfig
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                `id`,
+            </if>
+            <if test ='null != webinfoTitle'>
+                `webinfoTitle`,
+            </if>
+            <if test ='null != webinfoUrl'>
+                `webinfoUrl`,
+            </if>
+            <if test ='null != webinfoUploadUrl'>
+                `webinfoUploadUrl`,
+            </if>
+            <if test ='null != webinfoAvatar'>
+                `webinfoAvatar`,
+            </if>
+            <if test ='null != pexelsKey'>
+                `pexelsKey`,
+            </if>
+            <if test ='null != scale'>
+                `scale`,
+            </if>
+            <if test ='null != clock'>
+                `clock`,
+            </if>
+            <if test ='null != vipPrice'>
+                `vipPrice`,
+            </if>
+			<if test ='null != adsxili'>
+                `adsxili`,
+            </if>
+			<if test ='null != mianadszl'>
+                `mianadszl`,
+            </if>
+			<if test ='null != miangg'>
+                `miangg`,
+            </if>
+			<if test ='null != miandhlname'>
+                `miandhlname`,
+            </if>
+			<if test ='null != miandhlurl'>
+                `miandhlurl`,
+            </if>
+			<if test ='null != mianqq'>
+                `mianqq`,
+            </if>
+			<if test ='null != miankime'>
+                `miankime`,
+            </if>
+			<if test ='null != mianappa'>
+                `mianappa`,
+            </if>
+			<if test ='null != mianappb'>
+                `mianappb`,
+            </if>
+			<if test ='null != mianappc'>
+                `mianappc`,
+            </if>
+
+
+            <if test ='null != versionCode'>
+                `versionCode`,
+            </if>
+            <if test ='null != versionUrl'>
+                `versionUrl`,
+            </if>
+            <if test ='null != version'>
+                `version`,
+            </if>
+            <if test ='null != versionIntro'>
+                `versionIntro`,
+            </if>
+
+            <if test ='null != vipDay'>
+                `vipDay`,
+            </if>
+            <if test ='null != vipDiscount'>
+                `vipDiscount`,
+            </if>
+            <if test ='null != isEmail'>
+                `isEmail`,
+            </if>
+            <if test ='null != isInvite'>
+                `isInvite`,
+            </if>
+            <if test ='null != cosAccessKey'>
+                `cosAccessKey`,
+            </if>
+            <if test ='null != cosSecretKey'>
+                `cosSecretKey`,
+            </if>
+            <if test ='null != cosBucket'>
+                `cosBucket`,
+            </if>
+            <if test ='null != cosBucketName'>
+                `cosBucketName`,
+            </if>
+            <if test ='null != cosPath'>
+                `cosPath`,
+            </if>
+            <if test ='null != cosPrefix'>
+                `cosPrefix`,
+            </if>
+            <if test ='null != aliyunEndpoint'>
+                `aliyunEndpoint`,
+            </if>
+            <if test ='null != aliyunAccessKeyId'>
+                `aliyunAccessKeyId`,
+            </if>
+            <if test ='null != aliyunAccessKeySecret'>
+                `aliyunAccessKeySecret`,
+            </if>
+            <if test ='null != aliyunAucketName'>
+                `aliyunAucketName`,
+            </if>
+            <if test ='null != aliyunUrlPrefix'>
+                `aliyunUrlPrefix`,
+            </if>
+            <if test ='null != aliyunFilePrefix'>
+                `aliyunFilePrefix`,
+            </if>
+            <if test ='null != ftpHost'>
+                `ftpHost`,
+            </if>
+            <if test ='null != ftpPort'>
+                `ftpPort`,
+            </if>
+            <if test ='null != ftpUsername'>
+                `ftpUsername`,
+            </if>
+            <if test ='null != ftpPassword'>
+                `ftpPassword`,
+            </if>
+            <if test ='null != ftpBasePath'>
+                `ftpBasePath`,
+            </if>
+            <if test ='null != alipayAppId'>
+                `alipayAppId`,
+            </if>
+            <if test ='null != alipayPrivateKey'>
+                `alipayPrivateKey`,
+            </if>
+            <if test ='null != alipayPublicKey'>
+                `alipayPublicKey`,
+            </if>
+            <if test ='null != alipayNotifyUrl'>
+                `alipayNotifyUrl`,
+            </if>
+            <if test ='null != appletsAppid'>
+                `appletsAppid`,
+            </if>
+            <if test ='null != appletsSecret'>
+                `appletsSecret`,
+            </if>
+            <if test ='null != qqAppletsAppid'>
+                `qqAppletsAppid`,
+            </if>
+            <if test ='null != qqAppletsSecret'>
+                `qqAppletsSecret`,
+            </if>
+            <if test ='null != wxpayAppId'>
+                `wxpayAppId`,
+            </if>
+            <if test ='null != wxpayMchId'>
+                `wxpayMchId`,
+            </if>
+            <if test ='null != wxpayKey'>
+                `wxpayKey`,
+            </if>
+            <if test ='null != wxpayNotifyUrl'>
+                `wxpayNotifyUrl`,
+            </if>
+            <if test ='null != auditlevel'>
+                `auditlevel`,
+            </if>
+            <if test ='null != adAwardPoint'>
+                `adAwardPoint`,
+            </if>
+            <if test ='null != adAwardPerDay'>
+                `adAwardPerDay`,
+            </if>
+            <if test ='null != adRwPerDay'>
+                `adRwPerDay`,
+            </if>
+            <if test ='null != bm0shifou0action'>
+                `bm0shifou0action`,
+            </if>
+            <if test ='null != bm0shifou0pname'>
+                `bm0shifou0pname`,
+            </if>
+            <if test ='null != bm0jiance0action'>
+                `bm0jiance0action`,
+            </if>
+            <if test ='null != bm0jiance0pname'>
+                `bm0jiance0pname`,
+            </if>
+            <if test ='null != bm0xiazai'>
+                `bm0xiazai`,
+            </if>
+            <if test ='null != bm0neirong'>
+                `bm0neirong`,
+            </if>
+	    <if test ='null != forbidden'>
+                `forbidden`
+            </if>
+
+			<if test ='null != whseApp'>
+                `whseApp`,
+            </if>
+			<if test ='null != whseApi'>
+                `whseApi`,
+            </if>
+			<if test ='null != whseApphttp'>
+                `whseApphttp`,
+            </if>
+
+            <if test ='null != gg0cishu'>
+                `gg0cishu`,
+            </if>
+            <if test ='null != gg0neirong'>
+                `gg0neirong`,
+            </if>
+            <if test ='null != gg0lianjie'>
+                `gg0lianjie`,
+            </if>
+            <if test ='null != epayUrl'>
+                `epayUrl`,
+            </if>
+            <if test ='null != epayPid'>
+                `epayPid`,
+            </if>
+            <if test ='null != epayKey'>
+                `epayKey`,
+            </if>
+            <if test ='null != epayNotifyUrl'>
+                `epayNotifyUrl`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                #{id},
+            </if>
+            <if test ='null != webinfoTitle'>
+                #{webinfoTitle},
+            </if>
+            <if test ='null != webinfoUrl'>
+                #{webinfoUrl},
+            </if>
+            <if test ='null != webinfoUploadUrl'>
+                #{webinfoUploadUrl},
+            </if>
+            <if test ='null != webinfoAvatar'>
+                #{webinfoAvatar},
+            </if>
+            <if test ='null != pexelsKey'>
+                #{pexelsKey},
+            </if>
+            <if test ='null != scale'>
+                #{scale},
+            </if>
+            <if test ='null != clock'>
+                #{clock},
+            </if>
+            <if test ='null != vipPrice'>
+                #{vipPrice},
+            </if>
+			<if test ='null != adsxili'>
+                #{adsxili},
+            </if>
+			<if test ='null != mianadszl'>
+                #{mianadszl},
+            </if>
+			<if test ='null != miangg'>
+                #{miangg},
+            </if>
+			<if test ='null != miandhlname'>
+                #{miandhlname},
+            </if>
+			<if test ='null != miandhlurl'>
+                #{miandhlurl},
+            </if>
+			<if test ='null != mianqq'>
+                #{mianqq},
+            </if>
+			<if test ='null != miankime'>
+                #{miankime},
+            </if>
+			<if test ='null != mianappa'>
+                #{mianappa},
+            </if>
+			<if test ='null != mianappb'>
+                #{mianappb},
+            </if>
+			<if test ='null != mianappc'>
+                #{mianappc},
+            </if>
+
+            <if test ='null != versionCode'>
+                #{versionCode},
+            </if>
+            <if test ='null != versionUrl'>
+                #{versionUrl},
+            </if>
+            <if test ='null != version'>
+                #{version},
+            </if>
+            <if test ='null != versionIntro'>
+                #{versionIntro},
+            </if>
+
+            <if test ='null != vipDay'>
+                #{vipDay},
+            </if>
+            <if test ='null != vipDiscount'>
+                #{vipDiscount},
+            </if>
+            <if test ='null != isEmail'>
+                #{isEmail},
+            </if>
+            <if test ='null != isInvite'>
+                #{isInvite},
+            </if>
+            <if test ='null != cosAccessKey'>
+                #{cosAccessKey},
+            </if>
+            <if test ='null != cosSecretKey'>
+                #{cosSecretKey},
+            </if>
+            <if test ='null != cosBucket'>
+                #{cosBucket},
+            </if>
+            <if test ='null != cosBucketName'>
+                #{cosBucketName},
+            </if>
+            <if test ='null != cosPath'>
+                #{cosPath},
+            </if>
+            <if test ='null != cosPrefix'>
+                #{cosPrefix},
+            </if>
+            <if test ='null != aliyunEndpoint'>
+                #{aliyunEndpoint},
+            </if>
+            <if test ='null != aliyunAccessKeyId'>
+                #{aliyunAccessKeyId},
+            </if>
+            <if test ='null != aliyunAccessKeySecret'>
+                #{aliyunAccessKeySecret},
+            </if>
+            <if test ='null != aliyunAucketName'>
+                #{aliyunAucketName},
+            </if>
+            <if test ='null != aliyunUrlPrefix'>
+                #{aliyunUrlPrefix},
+            </if>
+            <if test ='null != aliyunFilePrefix'>
+                #{aliyunFilePrefix},
+            </if>
+            <if test ='null != ftpHost'>
+                #{ftpHost},
+            </if>
+            <if test ='null != ftpPort'>
+                #{ftpPort},
+            </if>
+            <if test ='null != ftpUsername'>
+                #{ftpUsername},
+            </if>
+            <if test ='null != ftpPassword'>
+                #{ftpPassword},
+            </if>
+            <if test ='null != ftpBasePath'>
+                #{ftpBasePath},
+            </if>
+            <if test ='null != alipayAppId'>
+                #{alipayAppId},
+            </if>
+            <if test ='null != alipayPrivateKey'>
+                #{alipayPrivateKey},
+            </if>
+            <if test ='null != alipayPublicKey'>
+                #{alipayPublicKey},
+            </if>
+            <if test ='null != alipayNotifyUrl'>
+                #{alipayNotifyUrl},
+            </if>
+            <if test ='null != appletsAppid'>
+                #{appletsAppid},
+            </if>
+            <if test ='null != appletsSecret'>
+                #{appletsSecret},
+            </if>
+            <if test ='null != qqAppletsAppid'>
+                #{qqAppletsAppid},
+            </if>
+            <if test ='null != qqAppletsSecret'>
+                #{qqAppletsSecret},
+            </if>
+            <if test ='null != wxpayAppId'>
+                #{wxpayAppId},
+            </if>
+            <if test ='null != wxpayMchId'>
+                #{wxpayMchId},
+            </if>
+            <if test ='null != wxpayKey'>
+                #{wxpayKey},
+            </if>
+            <if test ='null != wxpayNotifyUrl'>
+                #{wxpayNotifyUrl},
+            </if>
+            <if test ='null != auditlevel'>
+                #{auditlevel},
+            </if>
+            <if test ='null != adAwardPoint'>
+                #{adAwardPoint},
+            </if>
+            <if test ='null != adAwardPerDay'>
+                #{adAwardPerDay},
+            </if>
+            <if test ='null != adRwPerDay'>
+                #{adRwPerDay},
+            </if>
+            <if test ='null != bm0shifou0action'>
+                #{bm0shifou0action},
+            </if>
+            <if test ='null != bm0shifou0pname'>
+                #{bm0shifou0pname},
+            </if>
+            <if test ='null != bm0jiance0action'>
+                #{bm0jiance0action},
+            </if>
+            <if test ='null != bm0jiance0pname'>
+                #{bm0jiance0pname},
+            </if>
+            <if test ='null != bm0xiazai'>
+                #{bm0xiazai},
+            </if>
+            <if test ='null != bm0neirong'>
+                #{bm0neirong},
+            </if>
+
+			<if test ='null != whseApp'>
+                #{whseApp},
+            </if>
+			<if test ='null != whseApi'>
+                #{whseApi},
+            </if>
+			<if test ='null != whseApphttp'>
+                #{whseApphttp},
+            </if>
+
+            <if test ='null != gg0cishu'>
+                #{gg0cishu},
+            </if>
+            <if test ='null != gg0neirong'>
+                #{gg0neirong},
+            </if>
+            <if test ='null != gg0lianjie'>
+                #{gg0lianjie},
+            </if>
+	        <if test ='null != forbidden'>
+                #{forbidden},
+            </if>
+            <if test ='null != epayUrl'>
+                #{epayUrl},
+            </if>
+            <if test ='null != epayPid'>
+                #{epayPid},
+            </if>
+            <if test ='null != epayKey'>
+                #{epayKey},
+            </if>
+            <if test ='null != epayNotifyUrl'>
+                #{epayNotifyUrl}
+            </if>
+        </trim>
+    </insert>
+
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoApiconfig">
+        UPDATE ${prefix}_apiconfig
+        <set>
+            <if test ='null != webinfoTitle'>`webinfoTitle` = #{webinfoTitle},</if>
+            <if test ='null != webinfoUrl'>`webinfoUrl` = #{webinfoUrl},</if>
+            <if test ='null != webinfoUploadUrl'>`webinfoUploadUrl` = #{webinfoUploadUrl},</if>
+            <if test ='null != webinfoAvatar'>`webinfoAvatar` = #{webinfoAvatar},</if>
+            <if test ='null != pexelsKey'>`pexelsKey` = #{pexelsKey},</if>
+            <if test ='null != scale'>`scale` = #{scale},</if>
+            <if test ='null != clock'>`clock` = #{clock},</if>
+            <if test ='null != vipPrice'>`vipPrice` = #{vipPrice},</if>
+			<if test ='null != adsxili'>`adsxili` = #{adsxili},</if>
+			<if test ='null != mianadszl'>`mianadszl` = #{mianadszl},</if>
+			<if test ='null != miangg'>`miangg` = #{miangg},</if>
+			<if test ='null != miandhlname'>`miandhlname` = #{miandhlname},</if>
+			<if test ='null != miandhlurl'>`miandhlurl` = #{miandhlurl},</if>
+			<if test ='null != mianqq'>`mianqq` = #{mianqq},</if>
+			<if test ='null != miankime'>`miankime` = #{miankime},</if>
+			<if test ='null != mianappa'>`mianappa` = #{mianappa},</if>
+			<if test ='null != mianappb'>`mianappb` = #{mianappb},</if>
+			<if test ='null != mianappc'>`mianappc` = #{mianappc},</if>
+
+            <if test ='null != versionCode'>`versionCode` = #{versionCode},</if>
+            <if test ='null != versionUrl'>`versionUrl` = #{versionUrl},</if>
+            <if test ='null != version'>`version` = #{version},</if>
+            <if test ='null != versionIntro'>`versionIntro` = #{versionIntro},</if>
+
+            <if test ='null != vipDay'>`vipDay` = #{vipDay},</if>
+            <if test ='null != vipDiscount'>`vipDiscount` = #{vipDiscount},</if>
+            <if test ='null != isEmail'>`isEmail` = #{isEmail},</if>
+            <if test ='null != isInvite'>`isInvite` = #{isInvite},</if>
+            <if test ='null != cosAccessKey'>`cosAccessKey` = #{cosAccessKey},</if>
+            <if test ='null != cosSecretKey'>`cosSecretKey` = #{cosSecretKey},</if>
+            <if test ='null != cosBucket'>`cosBucket` = #{cosBucket},</if>
+            <if test ='null != cosBucketName'>`cosBucketName` = #{cosBucketName},</if>
+            <if test ='null != cosPath'>`cosPath` = #{cosPath},</if>
+            <if test ='null != cosPrefix'>`cosPrefix` = #{cosPrefix},</if>
+            <if test ='null != aliyunEndpoint'>`aliyunEndpoint` = #{aliyunEndpoint},</if>
+            <if test ='null != aliyunAccessKeyId'>`aliyunAccessKeyId` = #{aliyunAccessKeyId},</if>
+            <if test ='null != aliyunAccessKeySecret'>`aliyunAccessKeySecret` = #{aliyunAccessKeySecret},</if>
+            <if test ='null != aliyunAucketName'>`aliyunAucketName` = #{aliyunAucketName},</if>
+            <if test ='null != aliyunUrlPrefix'>`aliyunUrlPrefix` = #{aliyunUrlPrefix},</if>
+            <if test ='null != aliyunFilePrefix'>`aliyunFilePrefix` = #{aliyunFilePrefix},</if>
+            <if test ='null != ftpHost'>`ftpHost` = #{ftpHost},</if>
+            <if test ='null != ftpPort'>`ftpPort` = #{ftpPort},</if>
+            <if test ='null != ftpUsername'>`ftpUsername` = #{ftpUsername},</if>
+            <if test ='null != ftpPassword'>`ftpPassword` = #{ftpPassword},</if>
+            <if test ='null != ftpBasePath'>`ftpBasePath` = #{ftpBasePath},</if>
+            <if test ='null != alipayAppId'>`alipayAppId` = #{alipayAppId},</if>
+            <if test ='null != alipayPrivateKey'>`alipayPrivateKey` = #{alipayPrivateKey},</if>
+            <if test ='null != alipayPublicKey'>`alipayPublicKey` = #{alipayPublicKey},</if>
+            <if test ='null != alipayNotifyUrl'>`alipayNotifyUrl` = #{alipayNotifyUrl},</if>
+            <if test ='null != appletsAppid'>`appletsAppid` = #{appletsAppid},</if>
+            <if test ='null != appletsSecret'>`appletsSecret` = #{appletsSecret},</if>
+            <if test ='null != qqAppletsAppid'>`qqAppletsAppid` = #{qqAppletsAppid},</if>
+            <if test ='null != qqAppletsSecret'>`qqAppletsSecret` = #{qqAppletsSecret},</if>
+            <if test ='null != wxpayAppId'>`wxpayAppId` = #{wxpayAppId},</if>
+            <if test ='null != wxpayMchId'>`wxpayMchId` = #{wxpayMchId},</if>
+            <if test ='null != wxpayKey'>`wxpayKey` = #{wxpayKey},</if>
+            <if test ='null != wxpayNotifyUrl'>`wxpayNotifyUrl` = #{wxpayNotifyUrl},</if>
+            <if test ='null != auditlevel'>`auditlevel` = #{auditlevel},</if>
+            <if test ='null != forbidden'>`forbidden` = #{forbidden},</if>
+            <if test ='null != adAwardPoint'>`adAwardPoint` = #{adAwardPoint},</if>
+            <if test ='null != adAwardPerDay'>`adAwardPerDay` = #{adAwardPerDay},</if>
+            <if test ='null != adRwPerDay'>`adRwPerDay` = #{adRwPerDay},</if>
+
+            <if test ='null != bm0shifou0action'>`bm0shifou0action` = #{bm0shifou0action},</if>
+            <if test ='null != bm0shifou0pname'>`bm0shifou0pname` = #{bm0shifou0pname},</if>
+            <if test ='null != bm0jiance0action'>`bm0jiance0action` = #{bm0jiance0action},</if>
+            <if test ='null != bm0jiance0pname'>`bm0jiance0pname` = #{bm0jiance0pname},</if>
+            <if test ='null != bm0xiazai'>`bm0xiazai` = #{bm0xiazai},</if>
+            <if test ='null != bm0neirong'>`bm0neirong` = #{bm0neirong},</if>
+
+			<if test ='null != whseApp'>`whseApp` = #{whseApp},</if>
+			<if test ='null != whseApi'>`whseApi` = #{whseApi},</if>
+			<if test ='null != whseApphttp'>`whseApphttp` = #{whseApphttp},</if>
+
+            <if test ='null != gg0cishu'>`gg0cishu` = #{gg0cishu},</if>
+            <if test ='null != gg0neirong'>`gg0neirong` = #{gg0neirong},</if>
+            <if test ='null != gg0lianjie'>`gg0lianjie` = #{gg0lianjie},</if>
+	        <if test ='null != freeRenovateTimes'>`freeRenovateTimes` = #{freeRenovateTimes}</if>
+            <if test ='null != epayUrl'>`epayUrl` = #{epayUrl},</if>
+            <if test ='null != epayPid'>`epayPid` = #{epayPid},</if>
+            <if test ='null != epayKey'>`epayKey` = #{epayKey},</if>
+            <if test ='null != epayNotifyUrl'>`epayNotifyUrl` = #{epayNotifyUrl}</if>
+
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <!-- 主键查询 -->
+    <select id="selectByKey" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_apiconfig
+        WHERE `id` = #{key}
+    </select>
+
+
+</mapper>

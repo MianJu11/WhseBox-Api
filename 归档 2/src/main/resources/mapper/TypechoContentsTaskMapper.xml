@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WhseApi.dao.TypechoContentsTaskDao">
+
+    <resultMap id="BaseResultMap" type="com.WhseApi.entity.TypechoContentsTask" >
+        <result column="id" property="id" />
+        <result column="content_id" property="contentId" />
+        <result column="type" property="type" />
+        <result column="end_time" property="endTime" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `content_id`,
+        `type`,
+        `end_time`,
+        `status`
+    </sql>
+
+    <!-- 插入数据 -->
+    <insert id="insert" parameterType="com.WhseApi.entity.TypechoContentsTask"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO ${prefix}_contents_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != task.id'>
+                `id`,
+            </if>
+            <if test ='null != task.contentId'>
+                `content_id`,
+            </if>
+            <if test ='null != task.type'>
+                `type`,
+            </if>
+            <if test ='null != task.endTime'>
+                `end_time`,
+            </if>
+            <if test ='null != task.status'>
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != task.id'>
+                #{task.id},
+            </if>
+            <if test ='null != task.contentId'>
+                #{task.contentId},
+            </if>
+            <if test ='null != task.type'>
+                #{task.type},
+            </if>
+            <if test ='null != task.endTime'>
+                #{task.endTime},
+            </if>
+            <if test ='null != task.status'>
+                #{task.status},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.WhseApi.entity.TypechoContentsTask">
+        UPDATE ${prefix}_contents_task
+        <set>
+            <if test ='null != task.endTime'>`end_time` = #{task.endTime},</if>
+            <if test ='null != task.status'>`status` = #{task.status},</if>
+        </set>
+        WHERE `id` = #{task.id}
+    </update>
+
+    <!-- 条件查询 -->
+    <select id="getByIdAndType" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_contents_task
+        <where>
+            <if test ='null != contentId'>
+                and `content_id` = #{contentId}
+            </if>
+            <if test ='null != type'>
+                and `type` = #{type}
+            </if>
+        </where>
+    </select>
+
+    <!-- 条件查询 -->
+    <select id="getEffective" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${prefix}_contents_task
+        WHERE `status` = 1
+    </select>
+
+</mapper>
